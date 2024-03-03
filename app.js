@@ -5,7 +5,7 @@ const discuss = async () =>{
 
     const discussContainer = document.getElementById('discussContainer');
     data.posts.forEach(card => {
-        console.log(card);
+        // console.log(card);
 
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
@@ -17,8 +17,8 @@ const discuss = async () =>{
                 <span
                   class="indicator-item badge badge-success rounded-full"
                 ></span>
-                <div class="bg-white w-[72px] h-[72px] rounded-2xl">
-                <img src="${card.image}" alt="">
+                <div>
+                <img class=" w-[72px] h-[72px] rounded-2xl" src="${card.image}" alt="">
                 </div>
               </div>
               <div class="space-y-5">
@@ -49,7 +49,7 @@ const discuss = async () =>{
                     </div>
                   </div>
                   <div class="">
-                    <button
+                    <button onclick="handleButtonClick('${card.title}, ${card.view_count}')"
                       class="btn rounded-full bg-green-600 flex justify-center items-center"
                     >
                       <i
@@ -69,8 +69,42 @@ const discuss = async () =>{
 }
 
 
+let count = 0;
+
+const markReadContainer = document.getElementById('mark-read-container');
+const handleButtonClick = (id) => {
+    const para = id.split(',');
+    const cardTitle = para[0];
+    const cardViewCount = para[1];
+    console.log(cardTitle); 
+    console.log(cardViewCount); 
+const div = document.createElement('div');
+div.innerHTML =`
+<div
+class="p-4 bg-white flex justify-between items-center gap-4 rounded-2xl"
+>
+<h2 class="mulish-semiBold font-semibold text-base text-black">
+  ${cardTitle}
+</h2>
+<div class="flex justify-center gap-2 items-center">
+  <i class="fa-regular fa-eye text-xl"></i>
+  <span>${cardViewCount}</span>
+</div>
+</div>
+
+`
+markReadContainer.appendChild(div);
+    
 
 
+
+    count= count + 1;
+    console.log(count);
+    const markRead = document.getElementById('mark-read');
+    markRead.innerText = count;
+    
+   
+};
 
 
 const latestPost = async () =>{
