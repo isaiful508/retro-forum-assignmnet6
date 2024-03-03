@@ -5,7 +5,21 @@ const discuss = async () =>{
 
     const discussContainer = document.getElementById('discussContainer');
     data.posts.forEach(card => {
-        // console.log(card);
+        // console.log(card.isActive);
+        // let isActivity = '';
+        // if(card.isActive){
+        //     isActivity = `
+        //     <div class="indicator">
+        //         <span
+        //           class="indicator-item badge badge-success rounded-full"
+        //         ></span>
+        //         <div>
+        //         <img class=" w-[72px] h-[72px] rounded-2xl" src="${card.image}" alt="">
+        //         </div>
+        //       </div>`
+        // }else{
+
+        // }
 
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
@@ -14,9 +28,13 @@ const discuss = async () =>{
               class="bg-[#F3F3F5] p-5 lg:p-10 rounded-3xl lg:flex justify-start items-start gap-8 hover:bg-[#797DFC1A] hover:border-[#797DFC] hover:border"
             >
               <div class="indicator">
-                <span
-                  class="indicator-item badge badge-success rounded-full"
-                ></span>
+              <span ${
+                (card.isActive &&
+                  `class='indicator-item badge badge-success rounded-full'`) ||
+                `class='indicator-item badge badge-error rounded-full'`
+              } >
+              </span>
+
                 <div>
                 <img class=" w-[72px] h-[72px] rounded-2xl" src="${card.image}" alt="">
                 </div>
@@ -49,7 +67,7 @@ const discuss = async () =>{
                     </div>
                   </div>
                   <div class="">
-                    <button onclick="handleButtonClick('${card.title}, ${card.view_count}')"
+                    <button onclick="handleButtonClick('${card.title.replace(/'/g,'@')}, ${card.view_count}')"
                       class="btn rounded-full bg-green-600 flex justify-center items-center"
                     >
                       <i
@@ -68,16 +86,16 @@ const discuss = async () =>{
     
 }
 
-
+//button handle
 let count = 0;
 
 const markReadContainer = document.getElementById('mark-read-container');
+
 const handleButtonClick = (id) => {
     const para = id.split(',');
     const cardTitle = para[0];
     const cardViewCount = para[1];
-    console.log(cardTitle); 
-    console.log(cardViewCount); 
+     
 const div = document.createElement('div');
 div.innerHTML =`
 <div
@@ -95,11 +113,8 @@ class="p-4 bg-white flex justify-between items-center gap-4 rounded-2xl"
 `
 markReadContainer.appendChild(div);
     
-
-
-
     count= count + 1;
-    console.log(count);
+  
     const markRead = document.getElementById('mark-read');
     markRead.innerText = count;
     
