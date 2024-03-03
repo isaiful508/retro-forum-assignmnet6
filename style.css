@@ -18,6 +18,12 @@
   font-weight:700;
   font-style: normal;
 }
+.mulish-semiBold{
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:600;
+  font-style: normal;
+}
 .mulish-medium{
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
