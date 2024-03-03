@@ -1,4 +1,4 @@
-const discuss = async (search) =>{
+const discuss = async (search='comedy') =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${search}`);
     const data = await res.json();
     // console.log(data.posts);
@@ -174,5 +174,5 @@ const switchLoadingSpinner = (isLoading) =>{
   }
 }
 
-// discuss();
+discuss();
 latestPost();
