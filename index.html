@@ -136,46 +136,52 @@
               <p class="text-[#FFFFFFCC] inter-400 text-xl font-medium">
                 Share your favorite opinion and win and wp forum coffee mug!
               </p>
-              <label
-                class="input input-bordered h-auto flex items-center lg:gap-2 rounded-full"
-              >
-                <input
+
+              <label class="input input-bordered h-auto flex items-center lg:gap-2 rounded-full">
+
+                <input id="search-field"
                   type="text"
                   class="grow lg:py-4 lg:px-2"
                   placeholder="Search here anything"
                 />
-                <button
-                  class="btn lg:px-8 rounded-3xl bg-[#797DFC] flex justify-center items-center text-xl text-white"
-                >
+                <button onclick="handleSearch()" class="btn lg:px-8 rounded-3xl bg-[#797DFC] flex justify-center items-center text-xl text-white">
+
                   Search
+
                 </button>
+
               </label>
             </div>
             <div
               class="bg-white p-5 lg:p-11 w-full lg:w-1/2 rounded-3xl space-y-2 mt-5 lg:mt-0"
             >
               <li class="list-none flex justify-between items-center">
-                <p class="mulish font-semibold text-black text-2xl">
+                <p class=" font-semibold text-2xl">
                   Registered Users
                 </p>
-                <p class="mulish font-semibold text-black text-2xl">01</p>
+                <p class=" font-semibold  text-2xl">01</p>
               </li>
               <li class="list-none flex justify-between items-center">
-                <p class="mulish font-semibold text-black text-2xl">Forum</p>
-                <p class="mulish font-semibold text-black text-2xl">05</p>
+                <p class=" font-semibold  text-2xl">Forum</p>
+                <p class=" font-semibold  text-2xl">05</p>
               </li>
               <li class="list-none flex justify-between items-center">
-                <p class="mulish font-semibold text-black text-2xl">Topics</p>
-                <p class="mulish font-semibold text-black text-2xl">01</p>
+                <p class=" font-semibold  text-2xl">Topics</p>
+                <p class=" font-semibold  text-2xl">01</p>
               </li>
               <li class="list-none flex justify-between items-center">
-                <p class="mulish font-semibold text-black text-2xl">Replies</p>
-                <p class="mulish font-semibold text-black text-2xl">01</p>
+                <p class=" font-semibold  text-2xl">Replies</p>
+                <p class=" font-semibold  text-2xl">01</p>
               </li>
             </div>
           </div>
         </section>
         <!-- banner section end -->
+
+        <!-- loading spinner -->
+        <div id="loading-spinner" class="text-center hidden mt-10">
+            <span class="loading text-[#797DFC] loading-spinner loading-lg"></span>
+        </div>
     </header>
     <main>
         <!-- lets discuss setction start -->
@@ -261,7 +267,7 @@
     <!-- footer -->
     <footer class="lg:mt-24 mt-12 bg-gradient-to-b from-[#12132d12] to-[#12132d00] py-10 lg:p-28 text-center">
         <div>
-            <h2 class="mulish-extraBold font-black text-4xl text-black">ReTro</h2>
+            <h2 class="mulish-extraBold font-black text-4xl ">ReTro</h2>
             <p class="inter-400 text-[#12132DB3] mt-4 mb-8">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots <br> in a piece of classical Latin literature from 45 BC</p>
             <div class="flex gap-5 justify-center items-center">
                 <i class="fa-brands fa-twitter"></i>

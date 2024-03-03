@@ -1,27 +1,15 @@
-const discuss = async () =>{
-    const res = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
+const discuss = async (search) =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${search}`);
     const data = await res.json();
     // console.log(data.posts);
 
     const discussContainer = document.getElementById('discussContainer');
+
+    // clear discuss container
+    discussContainer.textContent = '';
     data.posts.forEach(card => {
-        // console.log(card.isActive);
-        // let isActivity = '';
-        // if(card.isActive){
-        //     isActivity = `
-        //     <div class="indicator">
-        //         <span
-        //           class="indicator-item badge badge-success rounded-full"
-        //         ></span>
-        //         <div>
-        //         <img class=" w-[72px] h-[72px] rounded-2xl" src="${card.image}" alt="">
-        //         </div>
-        //       </div>`
-        // }else{
-
-        // }
-
-        const cardDiv = document.createElement('div');
+       
+         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
         <div >
             <div
@@ -81,12 +69,15 @@ const discuss = async () =>{
         </div>
         `;
         discussContainer.appendChild(cardDiv);
-    })
+    });
+
+    // hide spinner
+    switchLoadingSpinner(false);
 
     
 }
 
-//button handle
+//card button  handle
 let count = 0;
 
 const markReadContainer = document.getElementById('mark-read-container');
@@ -161,5 +152,27 @@ const latestPost = async () =>{
 }
 
 
-discuss();
+
+// handle search button
+
+const handleSearch = () =>{
+    switchLoadingSpinner(true);
+    const searchField = document.getElementById('search-field').value;
+    console.log(searchField);
+    discuss(searchField);
+
+}
+
+
+// loading spinner
+const switchLoadingSpinner = (isLoading) =>{
+    const loadingSpinner = document.getElementById('loading-spinner');
+  if(isLoading){
+    loadingSpinner.classList.remove('hidden');
+  }else{
+    loadingSpinner.classList.add('hidden');
+  }
+}
+
+// discuss();
 latestPost();
