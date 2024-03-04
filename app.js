@@ -71,8 +71,13 @@ const discuss = async (search='comedy') =>{
         discussContainer.appendChild(cardDiv);
     });
 
-    // hide spinner
-    switchLoadingSpinner(false);
+    // hide spinner and set time
+
+    setTimeout( () => {
+      switchLoadingSpinner(false);
+
+    },2000);
+   
 
     
 }
